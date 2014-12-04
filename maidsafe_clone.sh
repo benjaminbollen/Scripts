@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# Creadit and forked from github.com/Fraser999/Scripts
+# Credit and forked from github.com/Fraser999/Scripts
 
 read -p "Enter your GitHub username: " User
+read -p "Enter the topic name for clone: " Clone
 
 echo ""
-git clone git@github.com:$User/MaidSafe MaidSafe-$User
+git clone git@github.com:$User/MaidSafe MaidSafe-$Clone
 echo "==============================================================================="
 
 echo -e "Configuring super-project\n-------------------------"
-cd MaidSafe-$User
+cd MaidSafe-$Clone
 git remote add upstream git@github.com:maidsafe/MaidSafe
 git remote set-url --push upstream disable_push
 git fetch upstream
