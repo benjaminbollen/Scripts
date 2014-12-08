@@ -60,7 +60,9 @@ for i in `grep path .gitmodules | sed 's/.*= //'` ; do
     git -C $i checkout next
     git -C $i merge upstream/next
   fi
-
+  
+  git -C $i checkout next
+  
   # Display info on remotes, branches and current status of 'next'.
   echo ""
   git -C $i remote -v
