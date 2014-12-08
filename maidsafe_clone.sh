@@ -12,7 +12,7 @@ echo "==========================================================================
 echo -e "Configuring super-project\n-------------------------"
 cd MaidSafe-$Clone
 git remote add upstream git@github.com:maidsafe/MaidSafe
-git remote set-url --push upstream disable_push
+#git remote set-url --push upstream disable_push
 git fetch upstream
 
 # Create local tracking branches 'master' and 'next' if these exist in 'origin/', checkout to 'next'
@@ -44,7 +44,7 @@ for i in `grep path .gitmodules | sed 's/.*= //'` ; do
   Submodule=$(git -C $i config --get remote.origin.url | sed 's#.*/##')
   echo -e "Configuring $Submodule\n------------`echo "$Submodule" | tr [:print:] -`"
   git -C $i remote rename origin upstream
-  git -C $i remote set-url --push upstream disable_push
+#  git -C $i remote set-url --push upstream disable_push
 
   git -C $i remote add origin `git -C $i config --get remote.upstream.url | sed 's/github.com:maidsafe/github.com:'$User'/'`
   git -C $i fetch origin
